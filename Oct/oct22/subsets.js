@@ -1,31 +1,28 @@
-function Permutations(arr, curr){
-  if(curr === arr.length){
-    console.log(arr.join(' '))
-    return;
-  }
+function Subset(n, cur, sub){
+    if(sub.length == 0){
+        console.log('')
+    }
+    if(sub.length > 0){
+        console.log(sub.join(' '))
+    }
 
-  for(var i = curr; i<arr.length; i++){
-    temp = arr[i]
-    arr[i] = arr[curr]
-    arr[curr] = temp
-    Permutations(arr, curr+1);
-    temp2 = arr[i]
-    arr[i] = arr[curr]
-    arr[curr] = temp2
-  }
+    if(cur === n) return;
 
+    for(var i=cur; i<n; i++){
+        sub.push(i)
+        Subset(n, i+1, sub)
+        sub.pop()
+    }
 }
 
 function runProgram(input) {
-    input = input.trim().split('\n')
-
-    arr = input[1].trim().split(' ').map(Number)
-    Permutations(arr, 0)
+    n = +input.trim()
+    sub = []
+    Subset(n+1, 1, sub)
 }
-
+  
 if (process.env.USERNAME === "hedga") {
-    runProgram(`3
-    1 2 3`);
+    runProgram(`1`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");

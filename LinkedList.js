@@ -36,7 +36,7 @@ class LinkedList{
     printList(){
         var current = this.head
         var index = 0
-        console.log(current)
+        //console.log(current)
         while(current){
             console.log('current: ', current.element,'index', index++)
             current = current.next
@@ -108,21 +108,30 @@ class LinkedList{
 }
 
 
-const list = new LinkedList()
+var list = new LinkedList()
 list.add(1)
 list.add(2)
 list.add(3)
-console.log('List :', list)
+list.add(4)
+console.log('List :', Node)
 
-list.insertAt(0, 2)
 
 
-list.printList()
-console.log('isEmpty', list.isEmpty())
-console.log('size', list.listSize())
+// list.insertAt(0, 2)
 
-list.removeElement(3)
 
+
+// list.printList()
+// console.log('isEmpty', list.isEmpty())
+// console.log('size', list.listSize())
+
+// list.removeElement(3)
+
+
+// while(list.next !== null){
+//     list = list.next
+    
+// }
 
 
  

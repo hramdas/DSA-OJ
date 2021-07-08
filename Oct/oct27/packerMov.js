@@ -1,30 +1,18 @@
-function Permutations(arr, curr){
-  if(curr === arr.length){
-    console.log(arr.join(' '))
-    return;
-  }
-
-  for(var i = curr; i<arr.length; i++){
-    temp = arr[i]
-    arr[i] = arr[curr]
-    arr[curr] = temp
-    Permutations(arr, curr+1);
-    temp2 = arr[i]
-    arr[i] = arr[curr]
-    arr[curr] = temp2
-  }
-
-}
-
 function runProgram(input) {
     input = input.trim().split('\n')
+    var cases = input[0].trim().split(' ').map(Number)
+    var arr = input[1].trim().split(' ').map(Number)
 
-    arr = input[1].trim().split(' ').map(Number)
-    Permutations(arr, 0)
+    k = cases[0]
+    n = cases[1]
+
+    console.log(cases, arr)
+
+   
 }
-
+  
 if (process.env.USERNAME === "hedga") {
-    runProgram(`3
+    runProgram(`3 3
     1 2 3`);
   } else {
     process.stdin.resume();
