@@ -1,5 +1,7 @@
 function SubSum(arr, k, cur, sub){
+  
     if(sub.length > 0){
+      console.log(sub)
         sum = 0
         for(num of sub){
             sum+=num
