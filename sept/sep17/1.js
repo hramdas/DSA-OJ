@@ -1,32 +1,21 @@
 function runProgram(input) {
     input = input.trim().split('\n'); 
-    n = Number(input[0].trim())
+    n = +input[0].trim()
+    
 
-    var price = [];
-    var res = [];
-
-    for (var i = 1; i <= n; i++){
-        query = input[i].trim().split(' ').map(Number)
-        // console.log(query)
-        
-        if(query[0] == 1){
-            if(price.length==0){
-                res.push('No Food')
-            } else {res.push(price[price.length-1])
-                price.pop()
-            }
-        } else price.push(query[1])
+    for(var i=1; i<=n; i++){
+        arr = input[i].trim().split(' ').map(Number)
+        console.log(arr)
     }
-   console.log(res.join('\n'))
+    
 }
-  
-if (process.env.USERNAME === "hedga") {
+if (process.env.USERNAME === "shiva") {
     runProgram(`6
-    1
-    2 5
-    2 7
-    2 9
-    1
+    0 1
+    0 2
+    0 3
+    1 
+    2
     1`);
   } else {
     process.stdin.resume();
@@ -46,4 +35,3 @@ if (process.env.USERNAME === "hedga") {
       process.exit(0);
     });
 }
-  

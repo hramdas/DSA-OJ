@@ -1,34 +1,25 @@
 function runProgram(input) {
-    arr = input.trim().split('\n'); 
-    n = Number(arr[0].trim())
+    input = input.trim().split('\n');
+    var cases = input[0].trim().split(' ').map(Number)
 
-    res = [];
-    line = 1;
-    //console.log(arr[line]);
+    n =cases[0]
+    k = cases[1]
+    arr = input[1].trim().split(' ').map(Number)
 
-    for (var i = 0; i < n; i++) {
-      cases = arr[line].trim().split(' ').map(Number)
-      // console.log(cases)
-      if(cases[0]==1){
-        res.push(cases[1])
-      } else if(cases[0]==2){
-        res.pop()
-      } else if(res.length == 0){
-        console.log('Empty!')
-      } else console.log(res[res.length-1])
-        line++
-    }
-   
+    for (var i = 0; i<n; i++) {
+        for (var j =0;j<n; j++){
+            if(arr[j]%k > arr[j+1]%k) {
+                temp = arr[j+1]
+                arr[j+1] = arr[j]
+                arr[j] = temp
+            }
+        }
+    } console.log(arr.join(' '))
 }
   
 if (process.env.USERNAME === "hedga") {
-    runProgram(`6
-    1 15
-    1 20
-    2
-    3
-    2
-    3`);
+    runProgram(`5 6
+    12 18 17 65 46`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");

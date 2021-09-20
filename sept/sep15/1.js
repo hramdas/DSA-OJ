@@ -1,34 +1,31 @@
 function runProgram(input) {
-    arr = input.trim().split('\n'); 
-    n = Number(arr[0].trim())
+    input = input.trim().split('\n'); 
+    n = Number(input[0].trim())
+    
+    var col = []
+    for(let i=1; i<=n;i++){
+    var line = input[i].trim().split(' ')
+    // console.log(line)
 
-    res = [];
-    line = 1;
-    //console.log(arr[line]);
-
-    for (var i = 0; i < n; i++) {
-      cases = arr[line].trim().split(' ').map(Number)
-      // console.log(cases)
-      if(cases[0]==1){
-        res.push(cases[1])
-      } else if(cases[0]==2){
-        res.pop()
-      } else if(res.length == 0){
-        console.log('Empty!')
-      } else console.log(res[res.length-1])
-        line++
+    if(line[0] == 'E'){
+        col.push(line[1])
+        console.log(col.length)
+    } else if (col.length ==0 && line[0] == 'D'){
+        console.log(-1, 0)
+    } else if(line[0] == 'D'){
+        console.log(col.shift(), col.length)
+        
     }
-   
+    }
+    
 }
-  
 if (process.env.USERNAME === "hedga") {
-    runProgram(`6
-    1 15
-    1 20
-    2
-    3
-    2
-    3`);
+    runProgram(`5
+    E 2
+    D
+    D
+    E 3
+    D`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
@@ -47,4 +44,4 @@ if (process.env.USERNAME === "hedga") {
       process.exit(0);
     });
 }
-  
+
