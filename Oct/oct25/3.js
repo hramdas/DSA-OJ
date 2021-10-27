@@ -1,35 +1,40 @@
-function SumExist(arr, k,sum, cur){
-    if(sum==k){
-        out = true
-    }
-    if(cur == arr.length){
-        return
-    }
-
-    for(var i= cur; i<arr.length; i++){
-        SumExist(arr, k,sum, i+1)
-        SumExist(arr, k,sum+arr[i], i+1)
-    }
-}
-
 function runProgram(input) {
     input = input.trim().split('\n')
-    n = +input[0].trim()
-    arr = input[1].trim().split(' ').map(Number)
-    k = +input[2].trim()
+    cases = +input[0].trim()
+    line = 1;
+    for(var i=0; i<cases; i++){
+        n = +input[line++].trim()
+        arr = input[line++].trim().split(' ').map(Number)
 
-    sum = 0
-    out = false;
-    SumExist(arr, k,sum, 0)
+        obj = {}
 
-    out ? console.log('yes') : console.log('no') 
+        for(num of arr){
+          obj[num] = obj[num] ? obj[num] + 1 : 1
+        }
+
+
+        console.log(obj)
+        
+        Okey = Object.keys(obj)
+
+        Oval = Object.values(obj)
+
+        for(var k =0; k<Okey.length; k++){
+            if(Oval[k] == 1){
+                console.log(Okey[k])
+            }
+        }
+
+    }
    
 }
   
 if (process.env.USERNAME === "hedga") {
-    runProgram(`9
-    1 2 3 4 5 6 7 8 9
-    5`);
+    runProgram(`2
+    1
+    5
+    5
+    1 2 1 3 2`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
@@ -48,3 +53,4 @@ if (process.env.USERNAME === "hedga") {
       process.exit(0);
     });
 }
+  

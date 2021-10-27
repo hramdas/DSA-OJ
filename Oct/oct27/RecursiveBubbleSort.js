@@ -1,31 +1,38 @@
-function Permutations(arr, curr){
-  if(curr === arr.length){
-    console.log(arr.join(' '))
-    return;
-  }
+function Recursive(arr, n, cur){
+  if(n == 1) return
 
-  for(var i = curr; i<arr.length; i++){
-    temp = arr[i]
-    arr[i] = arr[curr]
-    arr[curr] = temp
-    Permutations(arr, curr+1);
-    temp2 = arr[i]
-    arr[i] = arr[curr]
-    arr[curr] = temp2
+  for(var i=0; i<n-1; i++){
+
+    if(arr[i] > arr[i+1]){
+
+      temp = arr[i]
+
+      arr[i] = arr[i+1]
+
+      arr[i+1] = temp
+    }
+
+    Recursive(arr, n-1)
   }
+  
 
 }
 
 function runProgram(input) {
-    input = input.trim().split('\n')
+    var input = input.trim().split('\n')
+    var n = +input[0].trim()
+    var arr = input[1].trim().split(' ').map(Number)
 
-    arr = input[1].trim().split(' ').map(Number)
-    Permutations(arr, 0)
+    // out = []
+    Recursive(arr, n, 0)
+
+    console.log(arr.join(' '))
+   
 }
-
+  
 if (process.env.USERNAME === "hedga") {
-    runProgram(`3
-    1 2 3`);
+    runProgram(`5
+    3 5 0 9 8`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");

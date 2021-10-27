@@ -8,16 +8,11 @@ function subSequence(str,curr, sub){
     sub += str[i]
     subSequence(str,i+1, sub)
 
-    sub.slice(0, -1)
-
-    // sub = sub.split('')
-    // sub.pop()
-    // sub = sub.join('')
-
+    sub = sub.split('')
+    sub.pop()
+    sub = sub.join('')
   }
-
-
-     
+  
 }
 
 function runProgram(input) {
