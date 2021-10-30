@@ -24,6 +24,7 @@ function runProgram(input) {
      for(var j=0; j<n-i-1; j++){
 
         if(arr[j] > arr[j+1]){
+          
           //swapping
           // temp = arr[j]
           // arr[j] = arr[j+1]
