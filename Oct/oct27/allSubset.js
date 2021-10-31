@@ -71,7 +71,7 @@ console.log(res.join('\n'))
   
 if (process.env.USERNAME === "hedga") {
     runProgram(`3
-    1 2 2`);
+    1 2 3`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
