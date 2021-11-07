@@ -64,9 +64,6 @@ function runProgram(input) {
 //     }
 // }
 
-
-
-
 console.log(res.join('\n'))
     
    
