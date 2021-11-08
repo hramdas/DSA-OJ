@@ -5,17 +5,14 @@ function Recursive(arr, n){
   for(var i=0; i<n; i++){
 
     if(arr[i] > arr[i+1]){
-
+      //swap
       temp = arr[i]
-
       arr[i] = arr[i+1]
       arr[i+1] = temp
 
     }
   }
   Recursive(arr, n-1)
-  
-
 }
 
 function runProgram(input) {
@@ -23,7 +20,6 @@ function runProgram(input) {
     var n = +input[0].trim()
     var arr = input[1].trim().split(' ').map(Number)
 
-    // out = []
     Recursive(arr, n, 0)
 
     console.log(arr.join(' '))
