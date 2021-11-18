@@ -1,5 +1,5 @@
 function AllSub(arr, n, sub, cur){
-    if(sub.length >0){
+    if(sub.length >=0){
 
         // sub.sort(function(a,b) {return a-b})
         // console.log(sub ) 
@@ -23,7 +23,7 @@ function runProgram(input) {
 
     arr = arr.sort(function(a,b) {return(a-b)})
 
-    out = [[ ], ]
+    out = []
     
     AllSub(arr, n, [], 0)
 
