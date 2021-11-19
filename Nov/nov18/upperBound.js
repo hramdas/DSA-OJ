@@ -8,7 +8,6 @@ function upperBound(arr, k){
 
      if(arr[mid] > k){
        if(arr[mid-1] <= k) return mid
-
      }
 
      if(arr[mid] > k){
