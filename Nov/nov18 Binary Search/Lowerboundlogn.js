@@ -1,39 +1,33 @@
-function Minimum(arr, n){
-    var l = 0;
-    var h = n - 1;
+function lBound(arr, k){
+  var l=0; var h = arr.length-1
+  var ans = -1
+  while(l <= h){
     var mid = Math.floor(l + (h-l)/2)
 
-    // while(l <= h){
-    //     var mid = Math.floor(l + (h-l)/2)
-    //     if(arr[mid] > arr[mid+1]) return mid+1
-    //     if(arr[mid] > arr[mid-1]){
-    //     }
-    // }
+    if(arr[mid] === k ){
+      ans  = mid
+      h = mid-1
+     
+    } else if(arr[mid] > k){
+      h = mid-1
+    } else l = mid+1
+
+  } return ans
     
-    while(mid <= n-mid){
-
-
-
-        // if(arr[h] <= arr[h-1]) return arr[h]
-        // if(arr[mid] < arr[h]){
-        //     h = mid
-        // }
-        // h--
-    }
 }
 
 function runProgram(input) {
     var input = input.trim().split('\n')
-    var n = +input[0].trim()
-    var arr = input[1].trim().split(' ').map(Number)
-    console.log(Minimum(arr, n))
-   
+    var cases = input[0].trim().split(' ').map(Number)
+    var k = cases[1]
+    let arr = input[1].trim().split(' ').map(Number)
+
+    console.log(lBound(arr, k) )
 }
   
 if (process.env.USERNAME === "hedga") {
-    runProgram(`10
-    4 6 7 9 10 -1 0 1 2 3
-    `);
+    runProgram(`10 7
+    0 2 4 4 5 5 7 7 9 10`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");

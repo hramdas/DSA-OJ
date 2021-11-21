@@ -1,39 +1,33 @@
-function Minimum(arr, n){
-    var l = 0;
-    var h = n - 1;
-    var mid = Math.floor(l + (h-l)/2)
+function BSearch(arr, k, l, h){
 
-    // while(l <= h){
-    //     var mid = Math.floor(l + (h-l)/2)
-    //     if(arr[mid] > arr[mid+1]) return mid+1
-    //     if(arr[mid] > arr[mid-1]){
-    //     }
-    // }
-    
-    while(mid <= n-mid){
+    if(l > h) return -1
 
-
-
-        // if(arr[h] <= arr[h-1]) return arr[h]
-        // if(arr[mid] < arr[h]){
-        //     h = mid
-        // }
-        // h--
+    if(h>=l){
+        mid = Math.floor(l + (h-1)/2)
     }
+
+    if(arr[mid] === k) return 1
+    if(arr[mid] > k) return BSearch(arr, k, l, mid-1)
+    if(arr[mid] < k) return BSearch(arr, k, mid+1, h)
+    return -1
 }
 
 function runProgram(input) {
     var input = input.trim().split('\n')
-    var n = +input[0].trim()
+    var cases = input[0].trim().split(' ').map(Number)
+
+    var k = cases[1]
     var arr = input[1].trim().split(' ').map(Number)
-    console.log(Minimum(arr, n))
-   
+
+    var l=0;
+    var h= arr.length-1
+
+    console.log(BSearch(arr, k, l, h))
 }
   
 if (process.env.USERNAME === "hedga") {
-    runProgram(`10
-    4 6 7 9 10 -1 0 1 2 3
-    `);
+    runProgram(`5 2
+    8 4 1 9 11`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
