@@ -20,6 +20,7 @@ function Optimise(arr){
     } return -1
 }
 
+
 function runProgram(input) {
     var input = input.trim().split('\n')
     var cases = +input[0].trim()
@@ -30,7 +31,6 @@ function runProgram(input) {
 
         console.log(Optimise(arr))
     }
-    
 }
   
 if (process.env.USERNAME === "hedga") {
