@@ -1,12 +1,11 @@
 function occurance(arr, k){
  var n = arr.length-1;
-
+//Find 1st matched
 var i = pre(arr, k, 0, n);
 
 if( i == -1) return i
 
 var j = post(arr, k, i, n);
-
 return j-i+1
 }
 
@@ -19,6 +18,7 @@ function pre(arr, k, l, h){
       return mid
     } else if( k > arr[mid]) return pre(arr, k, mid+1, h)
     else return pre(arr, k, l, mid-1)
+  
   } return -1
 }
 
@@ -31,8 +31,8 @@ function post(arr, k, l, h){
       return mid
     } else if( k < arr[mid]) return post(arr, k, l, mid-1)
     else return post(arr, k, mid+1, h)
+    
   } return -1
-   
 }
 
 function runProgram(input) {

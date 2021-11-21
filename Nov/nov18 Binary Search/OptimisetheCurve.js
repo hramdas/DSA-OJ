@@ -4,20 +4,25 @@ function Optimise(arr){
     var c = arr[2]
     var k = arr[3]
     // console.log(A, B, C, k)
-    var n = 0
-    while(n < k-c){
+    let x = Number.MAX_VALUE;
+    if(k <= c){
+      return -1;
+    }
+    let h = k-c;
+    let l = 0
 
-        if(((a*n*n) + (b*n) + c) >= k){
-            console.log('sum', (a*n*n + b*n + c), k)
-            return n
-        } else n++
-        
-        // console.log('els',n )
+    while(l<=h){
+      let m = Math.floor(l + (h-l)/2)
 
-        // if(a*n*n + b*n + c < k){
-        //     n++
-        // }
-    } return -1
+
+        if(((a*m*m) + (b*m)) > k-c){
+          x =Math.min(x, m);
+          h = m-1
+        } else if ((a*m*m) + (b*m) < (k - c))
+          l = m+1;
+          else return m;
+
+    } return x
 }
 
 
@@ -35,7 +40,7 @@ function runProgram(input) {
   
 if (process.env.USERNAME === "hedga") {
     runProgram(`1
-    58 93 59 60`);
+    3 2 4 15`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");

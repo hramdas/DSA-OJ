@@ -49,7 +49,6 @@ function runProgram(input) {
     //         while( i< )
     //     }
     // }
-
     console.log(Search(arr, k))
 }
   
