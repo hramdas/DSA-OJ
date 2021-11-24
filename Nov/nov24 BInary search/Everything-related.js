@@ -2,7 +2,7 @@ function BSearch(arr, k, n){
 
         let i = low(arr, 0, n, k)
         if(i == -1) return [i, j, j-i+1];
-        let j = high(arr, i, n, k)
+        let j = high(arr, i+1, n, k)
     
         return [i, j, j-i+1]
 }
@@ -30,7 +30,6 @@ function high(arr, l, h, k){
         if((mid === arr.length-1 || arr[mid+1]) !== k && arr[mid] === k ) {
             return mid
         } else if (k < arr[mid]){
-            console.log('mid', mid)
             return high(arr, l, mid-1, k) 
         } return high(arr, mid+1, h, k)
     }

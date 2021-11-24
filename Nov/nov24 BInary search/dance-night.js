@@ -1,15 +1,17 @@
 function danceNight(boys, girls, m, n){
-    if(n < m || boys[m] > girls[n]) return 'NO'
-
-    let l=0;
-    while(l<=m){
-        if(boys[l] < girls[l]){
-            return 'NO'
-        }
-        l++
-    }
+ 
+    var g = 0;
+    var b = 0;
+    while(b<=g && b < m ){
+      if(boys[b] <= girls[g]){
+        return 'NO';
+      } 
+      if(boys[b] > girls[g]){
+        g++
+        b++
+      }
+    } 
     return 'YES'
-
 }
 
 function runProgram(input) {
@@ -26,14 +28,13 @@ function runProgram(input) {
 
         console.log(danceNight(boys, girls, m, n))
     }
-   
 }
   
 if (process.env.USERNAME === "hedga") {
     runProgram(`1
-    4 5
-    2 5 6 8
-    3 8 5 1 7`);
+    8 10
+    124 142 130 179 117 36 191 43
+    89 107 41 143 65 49 47 6 91 130`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");

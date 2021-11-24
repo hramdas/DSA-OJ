@@ -1,11 +1,25 @@
 function runProgram(input) {
-    var input = input.trim().split('')
+    var input = input.trim().split('\n')
     var n = +input[0].trim()
+    let arr = []
+    for(let i=1; i<=n; i++){
+        arr.push(+input[i].trim())
+    }
+    
+    let lhs = (a * b) + c;
+    let rhs = (f+ e) * d;
+
+    for(let j=0; j<n; j++){
+        
+    }
    
 }
   
 if (process.env.USERNAME === "hedga") {
-    runProgram(``);
+    runProgram(`3
+    5
+    7
+    10`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
