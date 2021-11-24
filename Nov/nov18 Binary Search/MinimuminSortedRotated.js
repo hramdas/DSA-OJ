@@ -3,12 +3,14 @@ function Minimum(arr, n){
     var h = n - 1;
     var mid = Math.floor(l + (h-l)/2)
 
-    // while(l <= h){
-    //     var mid = Math.floor(l + (h-l)/2)
-    //     if(arr[mid] > arr[mid+1]) return mid+1
-    //     if(arr[mid] > arr[mid-1]){
-    //     }
-    // }
+    while(l <= h){
+        var mid = Math.floor(l + (h-l)/2)
+
+        if(arr[mid] > arr[mid+1]) return mid+1
+        if(arr[mid] < arr[mid+1]){
+          
+        }
+    }
     
     while(mid <= n-mid){
 

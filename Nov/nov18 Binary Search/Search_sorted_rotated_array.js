@@ -1,40 +1,33 @@
+function findPivot(arr, l, h){
+    if(l>h) return -1;
+    if(h==l) return l;
+
+    let mid = Math.floor(l + (h-l)/2);
+    if(mid < h && arr[mid] > arr[mid+1]) return mid;
+
+    if(mid > l &&  arr[mid] < arr[mid-1]) return mid-1;
+    if(arr[l] >= arr[mid]) return findPivot(arr, l, mid-1)
+
+    return findPivot(arr, mid+1, h)
+}
 function Search(arr, k){
-    var l=0; var h = arr.length-1;
 
-    while(l <= h){
+    let pivot = findPivot(arr, 0, arr.length-1)
 
-        var mid = Math.floor(l + (h-l)/2)
-        if(arr[mid] == k){
-            return mid
-        }
+    if(pivot == -1) return bSearch(arr, 0, arr.length-1, k)
+    if(arr[pivot] == k) return pivot;
+    if(arr[0] <= k) return bSearch(arr, 0, pivot-1, k);
+    return bSearch(arr, pivot+1, arr.length-1, k)
 
-        if(k <= arr[arr.length-1]){
-            console.log('arr.len', arr[arr.length-1])
-            l = mid+1
-            h = arr.length-1
-            while(h >=l ){
-                var mid2 = Math.floor(l + (h-1)/2)
-                if(arr[mid2] === k) return mid2
-                if (arr[mid2] > k){
-                    h = mid-1
-                } else l = mid+1
-            }
-        }
+}
 
-        if(arr[mid] < k ){
-            l = mid+1
-           
-        } else h = mid-1
-        console.log('mid' ,mid)
+function bSearch(arr, l, h, k){
+    if(h <= l) return -1;
 
-    } return -1
-
-    // for(var i=0; i<arr.length; i++){
-    //     if(arr[i] === k){
-    //         return i
-    //     }
-    // } return -1
-
+    let mid = Math.floor(l + (h-1)/2)
+    if(k == arr[mid]) return mid;
+    if(k > arr[mid]) return bSearch(arr, mid+1, h, k);
+    return bSearch(arr, l, mid-1, k)
 }
 
 function runProgram(input) {
