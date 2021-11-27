@@ -16,7 +16,7 @@ function runProgram(input) {
         }
     }
 
-    var rhs =[]
+    var rhs = []
     for(let j=0; j<n; j++){
         for(let k=0; k<n; k++){
           for(let l=0; l<n; l++){
@@ -27,55 +27,40 @@ function runProgram(input) {
         }
   }
 
-  rhs = rhs.sort((a,b)=>a-b)
-  lhs = lhs.sort((a,b)=>a-b)
-    console.log(lhs, rhs) 
+  //  console.log(lhs, lhs.length)
+  //  console.log(rhs, rhs.length)
 
-     count = 0;
-  //  for(var x=0; x<lhs.length; x++){
-  //    for(var y=0; y<rhs.length; y++){
-  //      if(rhs[y] == lhs[x]){
-  //        count++
-  //        break;
-  //      } 
-  //    }
-  //  }
+   var lobj = {}
+   for(let a =0; a<lhs.length; a++){
+     lobj[lhs[a]] = lobj[lhs[a]] ? lobj[lhs[a]]+=1 : lobj[lhs[a]] =1
+   }
 
-  // if(lhs.length > rhs.length){
-  //   temp = rhs;
-  //   rhs = lhs;
-  //   lhs = temp
+   var robj = {}
+   for(let a =0; a<rhs.length; a++){
+    robj[rhs[a]] = robj[rhs[a]] ? robj[rhs[a]]+=1 : robj[rhs[a]] =1
+   }
 
-  // }
+   var lkey = Object.keys(lobj)
+   var rkey = Object.keys(robj)
   
-  for(var x=0; x<lhs.length; x++){
-    var l= 0;
-    var h = rhs.length
+  count = 0;
 
-    while(l<=h){
-
-      var mid =Math.floor(l +(h-l)/2);
-      if(rhs[mid] == lhs[x] ){
-        console.log('mid',rhs[mid], lhs[x] )
-        count ++
+  for(let a =0; a<lkey.length; a++){
+    for(let b =0; b<rkey.length; b++){
+      if(lkey[a] == rkey[b]){
+        count+= (lobj[lkey[a]] * robj[rkey[b]])
       }
-      if(rhs[mid] > lhs[x]){
-        h = mid-1
-      } else l = mid+1
-
-     
     }
-    
   }
 
-   console.log(count)
+  console.log(count)
+
 }
   
 if (process.env.USERNAME === "hedga") {
-    runProgram(`3
-    5
-    7
-    10`);
+    runProgram(`2
+    2
+    3`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
