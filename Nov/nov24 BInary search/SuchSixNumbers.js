@@ -45,7 +45,6 @@ function runProgram(input) {
       if(robj[lkey[a]]){
         count+= (robj[lkey[a]] * lobj[lkey[a]])
       }
-      
     
   }
 
