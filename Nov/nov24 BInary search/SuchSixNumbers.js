@@ -25,10 +25,7 @@ function runProgram(input) {
             }
           }
         }
-  }
-
-  //  console.log(lhs, lhs.length)
-  //  console.log(rhs, rhs.length)
+      }
 
    var lobj = {}
    for(let a =0; a<lhs.length; a++){
@@ -40,17 +37,16 @@ function runProgram(input) {
     robj[rhs[a]] = robj[rhs[a]] ? robj[rhs[a]]+=1 : robj[rhs[a]] =1
    }
 
-   var lkey = Object.keys(lobj)
-   var rkey = Object.keys(robj)
+  var lkey = Object.keys(lobj)
   
   count = 0;
-
   for(let a =0; a<lkey.length; a++){
-    for(let b =0; b<rkey.length; b++){
-      if(lkey[a] == rkey[b]){
-        count+= (lobj[lkey[a]] * robj[rkey[b]])
+    
+      if(robj[lkey[a]]){
+        count+= (robj[lkey[a]] * lobj[lkey[a]])
       }
-    }
+      
+    
   }
 
   console.log(count)
@@ -58,9 +54,10 @@ function runProgram(input) {
 }
   
 if (process.env.USERNAME === "hedga") {
-    runProgram(`2
-    2
-    3`);
+    runProgram(`3
+    5
+    7
+    10`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
