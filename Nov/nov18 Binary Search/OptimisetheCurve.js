@@ -3,7 +3,7 @@ function Optimise(arr){
     var b = arr[1]
     var c = arr[2]
     var k = arr[3]
-    // console.log(A, B, C, k)
+
     let x = Number.MAX_VALUE;
     if(k <= c){
       return -1;
@@ -13,8 +13,6 @@ function Optimise(arr){
 
     while(l<=h){
       let m = Math.floor(l + (h-l)/2)
-
-
         if(((a*m*m) + (b*m)) > k-c){
           x =Math.min(x, m);
           h = m-1
@@ -25,11 +23,9 @@ function Optimise(arr){
     } return x
 }
 
-
 function runProgram(input) {
     var input = input.trim().split('\n')
     var cases = +input[0].trim()
-    // console.log(n, input[1])
 
     for( let i=1; i<=cases; i++){
         var arr = input[i].trim().split(' ').map(Number)

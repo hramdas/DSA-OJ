@@ -1,7 +1,7 @@
 function BSearch(arr, k, n){
 
         let i = low(arr, 0, n, k)
-        if(i == -1) return [i, j, j-i+1];
+        if(i == -1) return [i, i, 0];
         let j = high(arr, i+1, n, k)
     
         return [i, j, j-i+1]
@@ -50,7 +50,7 @@ function runProgram(input) {
 if (process.env.USERNAME === "hedga") {
     runProgram(`5
     1 2 3 4 5
-    5
+    6
     Ex`);
   } else {
     process.stdin.resume();

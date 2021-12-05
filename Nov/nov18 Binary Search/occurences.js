@@ -41,17 +41,7 @@ function runProgram(input) {
     var k = cases[1]
     let arr = input[1].trim().split(' ').map(Number)
 
-    // count = 0
-    // for(var i=0; i<arr.length; i++){
-    //     if(arr[i] == k){
-    //         count++
-    //     }
-    // }
-
-
     console.log(occurance(arr, k))
-
-   
 }
   
 if (process.env.USERNAME === "hedga") {
