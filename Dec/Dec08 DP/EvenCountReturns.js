@@ -7,18 +7,15 @@ function envenNUm(arr){
         }
         st.push(sum)
     }
-
     res = []
     for(let i=st.length-1; i>=0; i--){
         res.push(st[i])
     }
     console.log(res.join(' '))
-    
 }
 
 function runProgram(input) {
     arr = input.trim().split('')
-
     envenNUm(arr)
 }
   
