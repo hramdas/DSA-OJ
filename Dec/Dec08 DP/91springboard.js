@@ -16,6 +16,7 @@ function runProgram(input) {
             }
             sq.push(sqr)
         }
+        
         st = []
         for(var k=0; k<w; k++){
             console.log('k', k)
