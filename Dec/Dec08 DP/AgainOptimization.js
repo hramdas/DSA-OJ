@@ -1,30 +1,34 @@
+//Recursion by Brute-Force algorithm 
+function knapSack(s, val, wt, n){
+  if(n==0 || s ==0) return 0;
+
+  if(wt[n-1] > s){
+    return knapSack(s, val, wt, n-1)
+    
+  } else return Math.max(val[n-1] + knapSack(s-wt[n-1] , val, wt, n-1), knapSack(s, val, wt, n-1))
+
+}
+
 function runProgram(input) {
     input = input.trim().split('\n')
     var testcases = +input[0].trim()
+   
     line = 1
     for(var i=0; i<testcases; i++){
         cases = input[line++].trim().split(' ').map(Number)
         s = cases[0]
         n = cases[1]
-        // console.log(s, n)
-        arr = []
+        //console.log(s, n)
+
+        wt = []
+        val = []
         for(let k=0; k<n; k++){
-            val = input[line++].trim().split(' ').map(Number)
-            arr.push([val[0], val[1], val[1]/val[0]])
+            cases = input[line++].trim().split(' ').map(Number)
+            wt.push(cases[0])
+            val.push(cases[1])
         }
-        arr = arr.sort((a,b)=>b[2]-a[2])
-        // console.log(arr)
-        var sum =0;
-        for(let j=0; j<arr.length; j++){
-            
-            if(sum == s || s<=0){
-                break;
-            } else if(arr[j][0]<=s){
-                sum+=arr[j][1]
-                s-=arr[j][0]
-            } else break
-        }
-        console.log(sum)
+        //console.log(wt, val)
+        console.log(knapSack(s, val, wt, n))
     }
 }
   

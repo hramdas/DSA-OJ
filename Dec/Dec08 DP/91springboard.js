@@ -16,32 +16,28 @@ function runProgram(input) {
             }
             sq.push(sqr)
         }
-        st = []
-        for(var k=0; k<w; k++){
-            console.log('k', k)
-            console.log(maxSum(sq,0, h, k, w, 0))
+        console.log(sq)
+
+        
+        res = sq[0]
+        for(let j=1; j<h; j++){
+            temp = []
+            for(let k=0; k<w; k++){
+                if(k==0){
+                    temp.push(sq[j][k] + Math.max(res[j], res[1]))
+                    console.log(sq[j][k], Math.max(res[j], res[1]))
+
+                } else if (k == w-2){
+                    temp.push(sq[j][k] + Math.max(res[j], res[j-1]))
+                    console.log(sq[j][k], Math.max(res[j], res[j-1]))
+
+                } else temp.push(sq[j][k] + Math.max(res[j], res[j-1], res[j+1]))
+            }
         }
-        line = line+h
+        console.log(temp)
     }
 }
 
-function maxSum(sq, t, b, l, r, sum){
-    sumall =0;
-    for(let i=t; i<b; i++){
-        if(l<r){
-            sumall+=sq[i][l]
-            if(sq[i][l] < sq[i][l-1] && l>0){
-                l = sq[i][l-1]
-            }
-            if(sq[i][l-1]< sq[i][l+1] && l-1<r){
-                l = sq[i][l+1]
-            }
-        }
-      
-    }
-    return sumall
-}
-  
 if (process.env.USERNAME === "hedga") {
     runProgram(`1
     6 5
