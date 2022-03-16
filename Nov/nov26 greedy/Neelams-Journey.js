@@ -1,33 +1,24 @@
-function BSearch(arr, k, l, h){
-
-    if(l > h) return -1
-
-    if(h>=l){
-        mid = Math.floor(l + (h-1)/2)
-    }
-
-    if(arr[mid] === k) return 1
-    if(arr[mid] > k) return BSearch(arr, k, l, mid-1)
-    if(arr[mid] < k) return BSearch(arr, k, mid+1, h)
-    return -1
-}
-
 function runProgram(input) {
-    var input = input.trim().split('\n')
-    var cases = input[0].trim().split(' ').map(Number)
-
-    var k = cases[1]
+    input = input.trim().split('\n')
+    var n = +input[0].trim()
     var arr = input[1].trim().split(' ').map(Number)
 
-    var l=0;
-    var h= arr.length-1
+    var sum = 0;
+    var c = arr[0]
+    for(let i=0; i< n; i++){
+        if(arr[i] < c){
+            c = arr[i]
+        }
+        sum += c
+    }
 
-    console.log(BSearch(arr, k, l, h))
+    console.log(sum)
+   
 }
   
 if (process.env.USERNAME === "hedga") {
-    runProgram(`5 2
-    8 4 1 9 11`);
+    runProgram(`5
+    4 7 8 3 4`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");

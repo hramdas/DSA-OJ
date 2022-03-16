@@ -22,7 +22,6 @@ function high(arr, l, h, k){
    
     if( l >=h) return h;
 
-    // console.log('l', l, h)
     while(h>=l){
         let mid = Math.floor(l + (h-l)/2)
         if(mid === arr.length-1 && arr[mid] === k) return mid
@@ -35,7 +34,6 @@ function high(arr, l, h, k){
     }
     return -1
 }
-
 
 function runProgram(input) {
     var input = input.trim().split('\n')

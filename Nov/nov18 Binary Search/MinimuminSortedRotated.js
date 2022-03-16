@@ -5,23 +5,14 @@ function Minimum(arr, n){
 
     while(l <= h){
         var mid = Math.floor(l + (h-l)/2)
-
-        if(arr[mid] > arr[mid+1]) return mid+1
-        if(arr[mid] < arr[mid+1]){
-          
-        }
-    }
+        if(arr[mid] < arr[arr.length-1] && arr[mid-1] > arr[mid]){
+          return  arr[mid]
+        } 
+        if(arr[mid] < arr[arr.length-1]){
+          h= mid-1
+        } else l = mid+1
+    } return arr[0]
     
-    while(mid <= n-mid){
-
-
-
-        // if(arr[h] <= arr[h-1]) return arr[h]
-        // if(arr[mid] < arr[h]){
-        //     h = mid
-        // }
-        // h--
-    }
 }
 
 function runProgram(input) {

@@ -4,7 +4,7 @@ function Optimise(arr){
     var c = arr[2]
     var k = arr[3]
 
-    let x = Number.MAX_VALUE;
+    let x = k
     if(k <= c){
       return -1;
     }
@@ -14,12 +14,11 @@ function Optimise(arr){
     while(l<=h){
       let m = Math.floor(l + (h-l)/2)
         if(((a*m*m) + (b*m)) > k-c){
-          x =Math.min(x, m);
+          x = m
           h = m-1
         } else if ((a*m*m) + (b*m) < (k - c))
           l = m+1;
           else return m;
-
     } return x
 }
 

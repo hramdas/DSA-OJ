@@ -1,16 +1,15 @@
 function occurance(arr, k){
- var n = arr.length-1;
-//Find 1st matched
-var i = pre(arr, k, 0, n);
+  var n = arr.length-1;
+  //Find 1st matched
+  var i = pre(arr, k, 0, n);
 
-if( i == -1) return i
+  if( i == -1) return i
 
-var j = post(arr, k, i, n);
-return j-i+1
+  var j = post(arr, k, i, n);
+  return j-i+1
 }
 
 function pre(arr, k, l, h){
-
   while(h>=l){
     let mid = Math.floor(l + (h-l)/2);
 
